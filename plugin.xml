@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.yooyuu.stomp"
+    version="0.0.1">
+
+	<name>WSStomp</name>
+	<description></description>
+	<license></license>
+
+	<engines>
+		<engine name="cordova" version=">=3.0.0" />
+	</engines>
+
+	<js-module src="www/wsstomp.js" name="PhoneRTC">
+        	<clobbers target="cordova-plugin-stomp" />
+	</js-module>
+	
+	<platform name="ios">
+		<info>This plugin base on lib "Java WebSockets" and "StompLib"
+Make the stomp over websocket
+		</info>
+		
+		<config-file target="config.xml" parent="/*">
+			<feature name="WSStompPlugin">
+				<param name="ios-package" value="WSStompPlugin" />
+			</feature>
+		</config-file>
+<!--
+		<header-file src="src/ios/RTCAudioSource.h" />
+		<source-file src="src/ios/Config.swift" /> -->
+
+    </platform>
+
+    <platform name="android">
+
+		<source-file src="src/android/top/wboss/stomp/Stomp.java" target-dir="src/top/wboss/stomp" />
+		<source-file src="src/android/top/wboss/stomp/StompConfig.java" target-dir="src/top/wboss/stomp" />
+		<source-file src="src/android/top/wboss/stomp/WSStompPlugin.java" target-dir="src/top/wboss/stomp" />
+		<source-file src="src/android/top/wboss/stomp/WSStompClient.java" target-dir="src/top/wboss/stomp" />
+
+		<source-file src="src/android/top/wboss/stomp/common/Ack.java" target-dir="src/top/wboss/stomp/common" />
+		<source-file src="src/android/top/wboss/stomp/common/StompCommand.java" target-dir="src/top/wboss/stomp/common" />
+		<source-file src="src/android/top/wboss/stomp/common/StompException.java" target-dir="src/top/wboss/stomp/common" />
+		<source-file src="src/android/top/wboss/stomp/common/StompFrame.java" target-dir="src/top/wboss/stomp/common" />
+
+		<source-file src="src/android/top/wboss/stomp/websocket/AbstractWrappedByteChannel.java" target-dir="src/top/wboss/stomp/websocket" />
+		<source-file src="src/android/top/wboss/stomp/websocket/SocketChannelIOHelper.java" target-dir="src/top/wboss/stomp/websocket" />
+		<source-file src="src/android/top/wboss/stomp/websocket/SSLSocketChannel2.java" target-dir="src/top/wboss/stomp/websocket" />
+		<source-file src="src/android/top/wboss/stomp/websocket/WebSocket.java" target-dir="src/top/wboss/stomp/websocket" />
+		<source-file src="src/android/top/wboss/stomp/websocket/WebSocketAdapter.java" target-dir="src/top/wboss/stomp/websocket" />
+		<source-file src="src/android/top/wboss/stomp/websocket/WebSocketFactory.java" target-dir="src/top/wboss/stomp/websocket" />
+		<source-file src="src/android/top/wboss/stomp/websocket/WebSocketImpl.java" target-dir="src/top/wboss/stomp/websocket" />
+		<source-file src="src/android/top/wboss/stomp/websocket/WebSocketListener.java" target-dir="src/top/wboss/stomp/websocket" />
+		<source-file src="src/android/top/wboss/stomp/websocket/WrappedByteChannel.java" target-dir="src/top/wboss/stomp/websocket" />
+
+		<source-file src="src/android/top/wboss/stomp/websocket/client/AbstractClientProxyChannel.java" target-dir="src/top/wboss/stomp/websocket/client" />
+		<source-file src="src/android/top/wboss/stomp/websocket/client/WebSocketClient.java" target-dir="src/top/wboss/stomp/websocket/client" />
+
+		<source-file src="src/android/top/wboss/stomp/websocket/drafts/Draft.java" target-dir="src/top/wboss/stomp/websocket/drafts" />
+		<source-file src="src/android/top/wboss/stomp/websocket/drafts/Draft_10.java" target-dir="src/top/wboss/stomp/websocket/drafts" />
+		<source-file src="src/android/top/wboss/stomp/websocket/drafts/Draft_17.java" target-dir="src/top/wboss/stomp/websocket/drafts" />
+		<source-file src="src/android/top/wboss/stomp/websocket/drafts/Draft_75.java" target-dir="src/top/wboss/stomp/websocket/drafts" />
+		<source-file src="src/android/top/wboss/stomp/websocket/drafts/Draft_76.java" target-dir="src/top/wboss/stomp/websocket/drafts" />
+
+		<source-file src="src/android/top/wboss/stomp/websocket/exceptions/IncompleteHandshakeException.java" target-dir="src/top/wboss/stomp/websocket/exceptions" />
+		<source-file src="src/android/top/wboss/stomp/websocket/exceptions/InvalidDataException.java" target-dir="src/top/wboss/stomp/websocket/exceptions" />
+		<source-file src="src/android/top/wboss/stomp/websocket/exceptions/InvalidFrameException.java" target-dir="src/top/wboss/stomp/websocket/exceptions" />
+		<source-file src="src/android/top/wboss/stomp/websocket/exceptions/InvalidHandshakeException.java" target-dir="src/top/wboss/stomp/websocket/exceptions" />
+		<source-file src="src/android/top/wboss/stomp/websocket/exceptions/LimitExedeedException.java" target-dir="src/top/wboss/stomp/websocket/exceptions" />
+		<source-file src="src/android/top/wboss/stomp/websocket/exceptions/NotSendableException.java" target-dir="src/top/wboss/stomp/websocket/exceptions" />
+		<source-file src="src/android/top/wboss/stomp/websocket/exceptions/WebsocketNotConnectedException.java" target-dir="src/top/wboss/stomp/websocket/exceptions" />
+
+		<source-file src="src/android/top/wboss/stomp/websocket/framing/CloseFrame.java" target-dir="src/top/wboss/stomp/websocket/framing" />
+		<source-file src="src/android/top/wboss/stomp/websocket/framing/CloseFrameBuilder.java" target-dir="src/top/wboss/stomp/websocket/framing" />
+		<source-file src="src/android/top/wboss/stomp/websocket/framing/FrameBuilder.java" target-dir="src/top/wboss/stomp/websocket/framing" />
+		<source-file src="src/android/top/wboss/stomp/websocket/framing/Framedata.java" target-dir="src/top/wboss/stomp/websocket/framing" />
+		<source-file src="src/android/top/wboss/stomp/websocket/framing/FramedataImpl1.java" target-dir="src/top/wboss/stomp/websocket/framing" />
+
+		<source-file src="src/android/top/wboss/stomp/websocket/handshake/ClientHandshake.java" target-dir="src/top/wboss/stomp/websocket/handshake" />
+		<source-file src="src/android/top/wboss/stomp/websocket/handshake/ClientHandshakeBuilder.java" target-dir="src/top/wboss/stomp/websocket/handshake" />
+		<source-file src="src/android/top/wboss/stomp/websocket/handshake/HandshakeBuilder.java" target-dir="src/top/wboss/stomp/websocket/handshake" />
+		<source-file src="src/android/top/wboss/stomp/websocket/handshake/Handshakedata.java" target-dir="src/top/wboss/stomp/websocket/handshake" />
+		<source-file src="src/android/top/wboss/stomp/websocket/handshake/HandshakedataImpl1.java" target-dir="src/top/wboss/stomp/websocket/handshake" />
+		<source-file src="src/android/top/wboss/stomp/websocket/handshake/HandshakeImpl1Client.java" target-dir="src/top/wboss/stomp/websocket/handshake" />
+		<source-file src="src/android/top/wboss/stomp/websocket/handshake/HandshakeImpl1Server.java" target-dir="src/top/wboss/stomp/websocket/handshake" />
+		<source-file src="src/android/top/wboss/stomp/websocket/handshake/ServerHandshake.java" target-dir="src/top/wboss/stomp/websocket/handshake" />
+		<source-file src="src/android/top/wboss/stomp/websocket/handshake/ServerHandshakeBuilder.java" target-dir="src/top/wboss/stomp/websocket/handshake" />
+
+		<source-file src="src/android/top/wboss/stomp/websocket/server/DefaultSSLWebSocketServerFactory.java" target-dir="src/top/wboss/stomp/websocket/server" />
+		<source-file src="src/android/top/wboss/stomp/websocket/server/DefaultWebSocketServerFactory.java" target-dir="src/top/wboss/stomp/websocket/server" />
+		<source-file src="src/android/top/wboss/stomp/websocket/server/WebSocketServer.java" target-dir="src/top/wboss/stomp/websocket/server" />
+
+		<source-file src="src/android/top/wboss/stomp/websocket/util/Base64.java" target-dir="src/top/wboss/stomp/websocket/util" />
+		<source-file src="src/android/top/wboss/stomp/websocket/util/Charsetfunctions.java" target-dir="src/top/wboss/stomp/websocket/util" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+			<feature name="WSStompPlugin">
+				<param name="android-package" value="com.yooyuu.stomp.WSStompPlugin" />
+			</feature>	
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+    </platform>
+
+    <platform name="browser">
+        <config-file target="config.xml" parent="/*">
+            <feature name="WSStompPlugin">
+                <param name="browser-package" value="WSStompPlugin" />
+            </feature>
+        </config-file>
+
+        <js-module src="src/browser/WSStompProxy.js" name="WSStompProxy">
+            <runs />
+        </js-module>    
+    </platform>
+</plugin>
